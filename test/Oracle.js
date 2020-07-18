@@ -81,11 +81,11 @@ contract('Oracle', function (accounts) {
             assert.equal(_res, true, 'Iswinner call returns success!');
             return OracleInstance.isWinner($test_item_uid_2, 3, { from: accounts[1] });
           }).then(function (_response) {
-            assert.equal(_response, false, 'Winner has been assigned correctly');
+            assert.equal(_response, false, 'Lost bet test passes');
             // test for purchase with higher price
             return OracleInstance.isWinner($test_item_uid_2, $test_item_winner_2, { from: $test_contract_owner });
           }).then(function (_response) {
-            assert.equal(_response, true, 'Winner has been assigned correctly');
+            assert.equal(_response, true, 'Win bet test passes');
           });
     });
 
