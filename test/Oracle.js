@@ -9,8 +9,8 @@ contract('Oracle', function (accounts) {
   const $test_item_name = 'ODIWC2020';
   const $test_item_winner = 1;
 
-  const $test_item_uid_2 = 2;
-  const $test_item_name_2 = 'T20WC2020';
+  const $test_item_uid_2 = 3;
+  const $test_item_name_2 = 'TSTWC2020';
   const $test_item_winner_2 = 1;
   const $test_contract_owner = accounts[0];
 
@@ -49,12 +49,13 @@ contract('Oracle', function (accounts) {
       })
       .then(function (_res) {
         assert.equal(_res, true, 'Item create call returns success!');
+        //add match from non owner account - test should fail
         return OracleInstance.addMatch($test_item_name_2, $test_item_winner_2, { from: accounts[1] });
       })
       .then(assert.fail)
       .catch(function (error) {
         assert(error.message.indexOf('revert') >= 0, 'error message must have revert');
-        // test for purchase with higher price
+        // add match from owner account - test should pass
         return OracleInstance.addMatch($test_item_name_2, $test_item_winner_2, { from: $test_contract_owner });
       })
       .then(function (receipt) {
