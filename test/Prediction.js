@@ -1,5 +1,5 @@
 /*
-Unit tests for Decentralised MarketPlace contract
+Unit tests for Prediction contract
 */
 var Prediction = artifacts.require('./Prediction.sol');
 var Oracle = artifacts.require('./Oracle.sol');

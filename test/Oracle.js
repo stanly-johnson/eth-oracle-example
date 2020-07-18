@@ -1,5 +1,5 @@
 /*
-Unit tests for Decentralised MarketPlace contract
+Unit tests for Oracle Contract
 */
 var Oracle = artifacts.require('./Oracle.sol');
 
